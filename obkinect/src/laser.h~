@@ -1,0 +1,19 @@
+#ifndef LASER_H_
+#define LASER_H_
+
+#include <iostream>
+#include <limits.h>
+#include <math.h>
+
+class laser
+{
+public:
+	/**** init ****/
+	laser(){}
+	
+	/**** func ****/
+	//bool use_point(const float new_value, const float old_value, const float range_min, const float range_max);
+
+};
+
+#endif
