@@ -1,4 +1,0 @@
-<launch>
-	<node pkg="hokuyo_node" type="hokuyo_node" name="hokuyo_node" />
-	<node pkg="show_hokuyo" type="display" name="display" output="screen" />
-</launch>
