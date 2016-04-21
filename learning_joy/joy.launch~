@@ -1,0 +1,25 @@
+<launch>
+
+ <!-- Turtlesim Node-->
+  <node pkg="turtlesim" type="turtlesim_node" name="sim"/>
+
+
+ <!-- joy node -->
+  <node respawn="true" pkg="joy"
+        type="joy_node" name="turtle_joy" >
+    <param name="joy_node/dev" type="string" value="/dev/input/js0" />
+  </node>
+
+ <!-- Axes -->
+  <param name="axis_linear" value="7" type="int"/>
+  <param name="axis_angular" value="6" type="int"/>
+
+  <param name="up_linear" value="3" type="int"/>
+  <param name="down_linear" value="0" type="int"/>
+  <param name="up_angular" value="1" type="int"/>
+  <param name="down_angular" value="2" type="int"/>
+
+  <!-- Control node -->
+  <node pkg="learning_joy" type="joycontrol" name="joycontrol" output="screen" />
+
+</launch>

@@ -62,7 +62,7 @@ int main(int argc, char** argv)
 	cv::namedWindow("laserScan");
 	cv::startWindowThread();
 
-    	ros::Subscriber scan_sub = n.subscribe<sensor_msgs::LaserScan>("/obscan", 1, my_callback);
+    	ros::Subscriber scan_sub = n.subscribe<sensor_msgs::LaserScan>("/kinectscan", 1, my_callback);
 
 	ros::spin();  
 	cv::destroyWindow("laserScan");  
