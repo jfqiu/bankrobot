@@ -10,6 +10,7 @@ Panels:
         - /LaserScan2
         - /Image1
         - /LaserScan3
+        - /LaserScan4
       Splitter Ratio: 0.424419
     Tree Height: 414
   - Class: rviz/Selection
@@ -75,7 +76,7 @@ Visualization Manager:
       Queue Size: 10
       Selectable: true
       Size (Pixels): 3
-      Size (m): 0.01
+      Size (m): 0.03
       Style: Flat Squares
       Topic: /hokuyoscan
       Use Fixed Frame: true
@@ -173,7 +174,7 @@ Visualization Manager:
       Queue Size: 10
       Selectable: true
       Size (Pixels): 3
-      Size (m): 0.01
+      Size (m): 0.03
       Style: Flat Squares
       Topic: /fusionscan
       Use Fixed Frame: true
@@ -203,16 +204,16 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 15.3831
+      Distance: 7.21969
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.06
         Stereo Focal Distance: 1
         Swap Stereo Eyes: false
         Value: false
       Focal Point:
-        X: 1.2862
-        Y: -0.563152
-        Z: 0.331252
+        X: 0.464201
+        Y: -0.545203
+        Z: 0.120967
       Name: Current View
       Near Clip Distance: 0.01
       Pitch: 1.3204

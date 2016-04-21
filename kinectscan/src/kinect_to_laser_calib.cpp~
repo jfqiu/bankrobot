@@ -5,12 +5,8 @@ void kinect_to_laser_calibration(sensor_msgs::LaserScan& kinect_scan_msg, const 
 	kinect_scan_msg = *depth_scan_msg;
 
 	double ranges_size = depth_scan_msg->ranges.size();
-	double kinect_min_x = -kinect_scan_msg.range_max * sin(depth_scan_msg->angle_min) + param.kinect_to_laser_x_ + param.laser_to_robot_x_;
-	double kinect_min_z =  kinect_scan_msg.range_max * cos(depth_scan_msg->angle_min) + param.kinect_to_laser_z_ + param.laser_to_robot_z_;
-	double kinect_max_x = -kinect_scan_msg.range_max * sin(depth_scan_msg->angle_max) + param.kinect_to_laser_x_ + param.laser_to_robot_x_;
-	double kinect_max_z =  kinect_scan_msg.range_max * cos(depth_scan_msg->angle_max) + param.kinect_to_laser_z_ + param.laser_to_robot_z_;
-	double kinect_angle_min = -atan2(kinect_min_x, kinect_min_z) + param.kinect_to_laser_theta_;
-	double kinect_angle_max = -atan2(kinect_max_x, kinect_max_z) + param.kinect_to_laser_theta_;
+	double kinect_angle_min = depth_scan_msg->angle_min + param.kinect_to_laser_theta_;
+	double kinect_angle_max = depth_scan_msg->angle_max + param.kinect_to_laser_theta_;
   	double kinect_angle_increment = (kinect_angle_max - kinect_angle_min) / (ranges_size - 1);
 
 	kinect_scan_msg.angle_min = kinect_angle_min;
@@ -46,6 +42,8 @@ void kinect_to_laser_calibration(sensor_msgs::LaserScan& kinect_scan_msg, const 
 void fusion(sensor_msgs::LaserScan kinect_scan_msg, sensor_msgs::LaserScan laser_scan_msg, sensor_msgs::LaserScan& fusion_scan_msg, const Params param)
 {
 	fusion_scan_msg = laser_scan_msg;
+	if (kinect_scan_msg.range_max > fusion_scan_msg.range_max) 
+		ROS_ERROR("RANGE_MAX INVERT!");
 	for (unsigned int i = 0; i < kinect_scan_msg.ranges.size(); i++)
 	{
 		//confidence
